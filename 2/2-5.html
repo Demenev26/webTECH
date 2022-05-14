@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8" />
+<head>
+      <title>Задание 5</title>
+<style>
+#sha { 
+	position: relative;
+	float: left;
+}
+</style>
+</head>
+<body align="center">
+<h1>Попадёшь шайбой в ворота??? (передвигается мышкой)</h1>
+<div align="center" id="sha">
+    
+<img width="250px"  height="150px" src="https://pngimg.com/uploads/hockey/hockey_PNG34.png">
+</div>
+<img style="float: right;" align="right" width="360px"  height="353px" src="https://hockey-mag.ru/components/com_jshopping/files/img_products/full_hokkeynyy-vorota-bauer-deuxe-official-pro-net.jpg">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$("#sha").mousedown(function() {
+			$(this).mousemove(function() {
+				sha.style.left = event.pageX - sha.offsetWidth / 2 + 'px';
+				sha.style.top = event.pageY - sha.offsetHeight / 2 + 'px';
+			});
+		}).mouseup(function() {
+				$(this).unbind('mousemove');
+			});
+</script>
+</body></html>

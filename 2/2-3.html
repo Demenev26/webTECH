@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8" />
+<head>
+      <title>Задание 3</title>
+<style>
+#sha { 
+    width: 250px;
+	height: 150px; 
+	position: relative;
+	float: left;
+}
+</style>
+</head>
+<body align="center">
+<h1>Попадёшь шайбой в ворота??? (передвигается стрелочками на клавиатуре)</h1>
+<img id="sha" src="https://pngimg.com/uploads/hockey/hockey_PNG34.png" >
+<img style="float: right;" align="right" width="360px"  height="353px" src="https://hockey-mag.ru/components/com_jshopping/files/img_products/full_hokkeynyy-vorota-bauer-deuxe-official-pro-net.jpg">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).on('keydown', function(e) {
+  switch (e.key) {
+
+    // перемещение влево
+    case "ArrowLeft":
+      $('#sha').animate({
+        left: "-=100px"
+      }, 'fast');
+      break;
+      // перемещение вверх
+    case "ArrowUp":
+      $('#sha').animate({
+        top: "-=100px"
+      }, 'fast');
+      break;
+      // перемещение вправо
+    case "ArrowRight":
+      $('#sha').animate({
+        left: "+=100px"
+      }, 'fast');
+      break;
+      // перемещение вниз
+    case "ArrowDown":
+      $('#sha').animate({
+        top: "+=100px"
+      }, 'fast');
+      break;
+  }
+});
+</script>
+</body></html>
