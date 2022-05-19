@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="us">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="jquery-ui.css" rel="stylesheet">
+	<title>Горящие туры</title>
+		
+	<style>
+	body{
+		font-family: "Trebuchet MS", sans-serif;
+		margin: 50px;
+    	background: 100% 100% url("data:image/jpeg;base64,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");
+}
+	mark {
+    background-color: red;
+    color: white;
+}
+	.demoHeaders {
+		margin-top: 2em;
+	}
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	#modal_form {
+	width: 300px; 
+	height: 300px; /* Рaзмеры дoлжны быть фиксирoвaны */
+	border-radius: 5px;
+	border: 3px #000 solid;
+	background: #fff;
+	position: fixed; /* чтoбы oкнo былo в видимoй зoне в любoм месте */
+	top: 45%; /* oтступaем сверху 45%, oстaльные 5% пoдвинет скрипт */
+	left: 50%; /* пoлoвинa экрaнa слевa */
+	margin-top: -150px;
+	margin-left: -150px; /* тут вся мaгия центрoвки css, oтступaем влевo и вверх минус пoлoвину ширины и высoты сooтветственнo =) */
+	display: none; /* в oбычнoм сoстoянии oкнa не дoлжнo быть */
+	opacity: 0; /* пoлнoстью прoзрaчнo для aнимирoвaния */
+	z-index: 5; /* oкнo дoлжнo быть нaибoлее бoльшем слoе */
+	padding: 20px 10px;
+}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	.ui-textfield {
+    font: inherit;
+    color: inherit;
+    background: none;
+    text-align: inherit;
+    outline: none;
+    cursor: text;	
+	}
+	
+	select {
+		width: 200px;
+	}
+	TD.leftcol {
+    width: 110px;
+    vertical-align: middle;
+    }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+    #header {
+	height: 300px;
+	margin-bottom: 15px;
+	background-image: url("https://cdni.rt.com/files/2018.02/article/5a741406fc7e9376378b4568.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+	#header .pages {
+		list-style-type: none;
+		height: 39px;
+		padding-top: 3px;
+		float: left;
+	}
+		#header .pages li {
+			float: left;
+		}
+		#header .pages li a {
+			display: block;
+			font-size: 0.9em;
+			font-weight: bold;
+			color: white;
+			text-transform: uppercase;
+			padding: 12px 15px;
+			text-decoration: none;
+		}
+		#header .pages li a:hover {
+			text-decoration: underline;
+		}
+	#header form {
+		width: 245px; height: 26px;
+		background: url(images/search.gif) no-repeat 0 8px;
+		float: right;
+		padding: 8px 30px 0 0;
+	}
+		#header form input {
+			border: 0;
+			float: left;
+			width: 170px;
+			margin: 5px;
+		}
+		#header form button {
+			border: 0;
+			text-indent: -9999px;
+			font-size: 0;
+			width: 60px; height: 26px;
+			float: right;
+			background-color: transparent;
+		}
+	#header .logo {
+		clear: both;
+		float: left;
+		padding: 30px 0 36px 20px;
+		
+	}
+		#header .logo h1 {
+			font-size: 2em;
+			text-transform: uppercase;
+		}
+			#header .logo h1 a {
+				text-decoration: none;
+			}
+		#header .logo p {
+			color: #888888;
+			font-weight: bold;
+			font-size: 1.2em;
+			text-transform: uppercase;
+		}
+	#header .sponsor {
+		float: right;
+		padding: 25px 0;
+	}
+	#header .categories {
+		clear: both;
+		list-style-type: none;
+		height: 40px;
+		border-bottom: 5px solid #003366;
+		border-top: 1px solid #DDDDDD;
+		overflow: hidden;
+	}
+		#header .categories li {
+			float: left;
+		}
+		#header .categories li a {
+			display: block;
+			padding: 13px;
+			color: #333333;
+			border-right: 1px solid #dddddd;
+			text-decoration: none;
+		}
+		#header .categories li a:hover {
+			background-color: #003366;
+			color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+	<header class="head">
+        <div align="right" style="float: right;width: 300px;margin: 20px 40px 40px 20px;"><img src="https://pngimg.com/uploads/sun/small/sun_PNG13448.png"></div>
+	<div align="center" style="float: right;width: 300px;margin: 20px 40px 20px 20px;font-size: 5em;">SUN TOUR</div>
+	</header>
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<div id="accordion">
+	<h3>Турция</h3>
+	<div>
+	<table width="100%" cellspacing="0" cellpadding="0">
+		<tr> 
+			<td class="leftcol"><img src="https://cdn-icons-png.flaticon.com/512/1172/1172477.png" width="100" height="100"></td>
+			<td class="leftcol" align="center"><h1>Кемер </h1><br>песчано-галечные и галечные пляжи<br/>воздух +29°, море +24°</td>
+			<td class="leftcol"></td>
+			<td class="leftcol"></td>
+			<td class="leftcol" align="center"><button>Подробнее</button></td>
+	
+		</tr>
+		<tr></tr>
+		<tr></tr>
+		<tr> 
+			<td class="leftcol"  align="left"></td>
+			<td class="leftcol"  align="left"></td>
+			<td class="leftcol"></td>
+			<td class="leftcol"></td>
+			<td class="leftcol"></td>
+		</tr>
+		<tr>
+		<td class="leftcol" valign="middle">78 351,53 ₽</td> 
+		<td valign="middle"></td>
+		<td valign="middle"></td>
+		<td valign="middle"></td>
+		<td valign="middle" align="center"><button id="buyutur1">Купить</button></td>
+		</tr>
+	</table>
+	<hr></hr>Турция уже более 20 лет является эталоном пляжного отдыха за рубежом для россиян. Когда-то большинство российских туристов начинали свой опыт путешествий именно в Турции, и до сих пор у многих осталась привычка сравнивать условия и сервис других направлений именно с этой гостеприимной страной. В Турции есть отели на любой вкус, в большинстве работает русскоговорящий персонал. Кроме того, не стоит забывать об увлекательных экскурсиях, которые познакомят с богатой историей и уникальным историческим наследием страны.</a>
+	</div>
+	<h3>Египет</h3>
+	<div>
+	<table width="100%" cellspacing="0" cellpadding="0">
+		<tr> 
+			<td class="leftcol"><img src="https://cdn-icons-png.flaticon.com/512/1172/1172477.png" width="100" height="100"></td>
+			<td class="leftcol" align="center"><h1>Хургада</h1><br>песчаные пляжи<br/>воздух +22°, море +22°</td>
+			<td class="leftcol"></td>
+			<td class="leftcol"></td>
+			<td class="leftcol" align="center"><button>Подробнее</button></td>
+	
+		</tr>
+		<tr></tr>
+		<tr></tr>
+		<tr> 
+			<td class="leftcol"  align="left"></td>
+			<td class="leftcol"  align="left"></td>
+			<td class="leftcol"></td>
+			<td class="leftcol"></td>
+			<td class="leftcol"></td>
+		</tr>
+		<tr>
+		<td class="leftcol" valign="middle">97 423,81 ₽</td> 
+		<td valign="middle"></td>
+		<td valign="middle"></td>
+		<td valign="middle"></td>
+		<td valign="middle" align="center"><button id="buyuegp1">Купить</button></td>
+		</tr>
+	</table>
+	<hr></hr>Для многих российских туристов путешествие в Египет когда-то было первой зарубежной поездкой. В этой стране можно круглый год загорать и плавать в чистейшей воде Красного моря, любуясь на коралловые рифы и маленьких пестрых рыбок. Туры в Египет – это безошибочный вариант отпуска на любой вкус и бюджет. Солнце, море, увлекательные экскурсии и веселые дискотеки делают отдых в Египте ярким и насыщенным.
+	</div>
+	<h3>Абхазия</h3>
+	<div><table width="100%" cellspacing="0" cellpadding="0">
+		<tr> 
+			<td class="leftcol"><img src="https://cdn2.tu-tu.ru/image/pagetree_node_data/1/153b58e1f9b432401769fef3aa9563ec/" width="250" height="150"></td>
+			<td class="leftcol"  align="center"><h1>Сухум</h1>воздух +40°</td>
+			<td class="leftcol"></td>
+			<td class="leftcol"></td>
+			<td class="leftcol" align="center"><button>Подробнее</button></td>
+	
+		</tr>
+		<tr></tr>
+		<tr></tr>
+		<tr> 
+			<td class="leftcol"  align="left"></td>
+			<td class="leftcol"  align="left"></td>
+			<td class="leftcol"></td>
+			<td class="leftcol"></td>
+			<td class="leftcol"></td>
+		</tr>
+		<tr>
+		<td class="leftcol" valign="middle">65 646,41 ₽</td> 
+		<td valign="middle"></td>
+		<td valign="middle"></td>
+		<td valign="middle"></td>
+		<td valign="middle" align="center"><button id="buyudub">Купить</button></td>
+		</tr>
+	</table>
+	<hr></hr>Природные ресурсы. Абхазия располагает запасами каменного угля (более 5,3 млн. т), торфа, доломита, мрамора, гранита, известняка, габбро-диабазов, мела, туфа, барита, свинца, разнообразных стройматериалов.
+	</div>
+	
+</div>
+<div id="dialog-form">
+  <form>
+    <fieldset>
+		<h4>Ваше имя <input type="text" id="fio" style = "ui-textfield"> </br> </h4>
+		<h4>Номер телефона <input type="text" id="fio" style = "ui-textfield"> </br> </h4>
+		<h4>Количество путёвок
+		<select name="minbeds" id="minbeds">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+		</select> </h4>
+		<h4><div id="slider"> </br> </h4>
+		<h4>Выбрать дату <input type="text" id="datepicker" style = "ui-textfield"></br> </h4>
+		<h4>Отель
+		<select name="town" id="town">
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select> <img src="https://free-png.ru/wp-content/uploads/2021/08/free-png.ru-10.png" width="20" height="20"></br> </h4>
+		<h4>Итого<input type="text" id = "result" style = "ui-textfield" readonly> </br> </h4>
+	</fieldset>
+  </form>
+</div>
+<div id="dialog-confirm" title="Оформить заявку?">
+    <fieldset>
+		<p>Проверьте данных, если всё хорошо можете отправлять заявку</p>
+	</fieldset>
+</div>
+<div id="thankyou" title="Спасибо за заказ, мы с вами свяжемся!">
+    <fieldset>
+		<p>Спасибо!</p>
+	</fieldset>
+</div>
+<div id="becareful" title="Проверьте правильность данных">
+    <fieldset>
+		<p>Проверьте правильность полей</p>
+	</fieldset>
+</div>
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script>
+var price;
+$( "#accordion" ).accordion({collapsible: true});
+
+$( "#buyutur1" ).button()
+		.click(function(event){
+			price = 77351;
+			$( "#result" ).val(77351);
+			$( "#tempname" ).val("Покупка путёвки");
+			$( "#dialog-form" ).dialog("option","title","Покупка путёвки");
+			$( "#dialog-form" ).dialog( "open" );
+		});
+
+$( "#buyuegp1" ).button()
+		.click(function(){
+			price = 97423;
+			$( "#result" ).val(97423);
+			$( "#dialog-form" ).dialog("option","title","Покупка путёвки");
+			$( "#dialog-form" ).dialog( "open" );
+        });
+        
+$( "#buyudub" ).button()
+		.click(function(){
+			price = 65646;
+			$( "#result" ).val(65646);
+			$( "#dialog-form" ).dialog("option","title","Покупка путёвки");
+			$( "#dialog-form" ).dialog( "open" );
+        });
+	$('#datepicker').datepicker({
+	dateFormat : "dd.mm.yy",
+	minDate: new Date($('#hiddendelivdate').val()),
+	monthNames : ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+	dayNamesMin : ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+});
+	$( "#card" ).tooltip();
+	$( "#dialog-form" ).dialog({
+    autoOpen: false,
+    height: 550,
+    width: 500,
+    modal: true,
+    buttons: {
+        "Оформить": function() {
+			if ($('#fio').val() == '' || $('#datepicker').val() == '' || $('#autocomplete').val() == '' || $('#card').val() == ''){
+				$( "#becareful" ).dialog("open");
+			}
+			else {
+				$( "#dialog-confirm" ).dialog("open");
+			}
+        }
+		},
+		close : function(event, ui) {
+			$('#fio').val('');
+			$('#datepicker').val('');
+			$('#autocomplete').val('');
+			$('#card').val('');
+			slider.slider( "value", 0);
+			select[ 0 ].selectedIndex = 0;
+		}
+    });
+	$( "#town" ).selectmenu();
+	var select = $( "#minbeds" )
+	.on( "change", function() {
+      slider.slider( "value", this.selectedIndex + 1 );
+		$( "#result" ).val(((this.selectedIndex+1)*price));
+    });
+	var slider = $( "#slider" ).slider({
+		min: 1,
+		max: 4,
+		range: "min",
+		value: select[ 0 ].selectedIndex + 1,
+		  slide: function( event, ui ) {
+			select[ 0 ].selectedIndex = ui.value - 1;
+			$( "#result" ).val((ui.value*price));
+		  }
+	});
+	var availableTags = [
+		"ул. Пушкина, д. Колотушкина"
+	];
+	$( "#autocomplete" ).autocomplete({
+		source: availableTags
+	});
+		$( "#dialog-confirm" ).dialog({
+			autoOpen: false,
+			resizable: false,
+			height: "auto",
+			width: 400,
+			modal: true,
+			buttons: {
+					"Купить путёвки": function() {
+						$( this ).dialog( "close" );
+							$( "#dialog-form" ).dialog( "close");
+							$( "#thankyou" ).dialog("open");
+					},
+					"Нужно перепроверить": function() {
+						$( this ).dialog( "close" );
+						$( "#dialog-form" ).dialog( "close");
+					}
+				}
+			});
+			$( "#thankyou" ).dialog({
+			autoOpen: false,
+			resizable: false,
+			height: "auto",
+			width: 400,
+			modal: true,
+			buttons: {
+					"Закрыть": function() {
+						$( this ).dialog( "close" );
+					}
+				}
+			});
+			$( "#becareful" ).dialog({
+			autoOpen: false,
+			resizable: false,
+			height: "auto",
+			width: 400,
+			modal: true,
+			buttons: {
+					"Закрыть": function() {
+						$( this ).dialog( "close" );
+					}
+				}
+			});
+</script>
+</body>
+</html>
